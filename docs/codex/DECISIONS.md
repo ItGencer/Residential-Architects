@@ -15,10 +15,10 @@ Trade-offs: The bundled site is simple to host and maintain, but dynamic feature
 
 ---
 
-Date: 2026-07-09
-Decision: Treat `src/` as the source of truth and keep root HTML/CSS/JS as static preview copies.
-Rationale: Webpack expects `src/index.js` and `src/index.html`, while a direct-open static preview is useful for quick inspection.
-Trade-offs: Maintaining both source and preview copies can introduce drift unless updates are mirrored intentionally.
+Date: 2026-07-10
+Decision: Treat `src/` as the single source of truth and remove root HTML/CSS/JS preview copies.
+Rationale: Webpack already builds from `src/index.js` and `src/index.html`; keeping duplicate root page assets introduced drift and made the project harder to maintain cleanly.
+Trade-offs: Direct file preview is no longer supported; local review should use the Webpack dev server or production build output.
 
 ---
 

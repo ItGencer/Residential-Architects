@@ -1,0 +1,67 @@
+@use "../abstracts/settings" as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  margin: 0;
+  background: $stone;
+  color: $charcoal;
+  font-family: $font-sans;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+
+  &.is-navigation-open {
+    overflow: hidden;
+  }
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  background: $bronze;
+  color: $paper;
+}
+
+:focus-visible {
+  outline: 2px solid $bronze;
+  outline-offset: 4px;
+}
+
+.u-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

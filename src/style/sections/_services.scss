@@ -1,0 +1,101 @@
+@use "../abstracts/settings" as *;
+
+.services {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.32fr) minmax(0, 0.68fr) auto;
+  align-items: end;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-top: $section-gap;
+  padding-bottom: $section-gap;
+
+  &__label {
+    @include mono-label;
+
+    margin: 0;
+  }
+
+  &__content {
+    &__title {
+      @include display-heading;
+
+      font-size: clamp(3.2rem, 8vw, 9rem);
+    }
+
+    &__text {
+      @include body-copy;
+    }
+  }
+
+  &__controls {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &__button {
+      @include circle-button;
+    }
+  }
+
+  &__rail {
+    grid-column: 2 / -1;
+    margin-top: clamp(2rem, 5vw, 4rem);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(17rem, 25vw);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: $site-pad;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__card {
+      min-height: 29rem;
+      padding: 0.9rem;
+      border: 1px solid $line;
+      background: color-mix(in srgb, $paper 72%, $stone);
+      display: grid;
+      grid-template-rows: auto 12rem auto 1fr;
+      gap: 1rem;
+      scroll-snap-align: start;
+
+      &:hover {
+        .services__rail__card__image {
+          transform: scale(1.02);
+          filter: saturate(1);
+        }
+      }
+
+      &__number {
+        @include mono-label;
+      }
+
+      &__image {
+        height: 12rem;
+        background: $stone-deep;
+        filter: saturate(0.9);
+        transition:
+          transform 650ms $ease,
+          filter 650ms $ease;
+      }
+
+      &__title {
+        margin: 0;
+        font-family: $font-display;
+        font-size: clamp(1.45rem, 2.2vw, 2rem);
+        font-weight: 400;
+      }
+
+      &__text {
+        margin: 0;
+        color: $muted;
+        line-height: 1.55;
+      }
+    }
+  }
+}

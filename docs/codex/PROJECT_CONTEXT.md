@@ -34,10 +34,9 @@ Handshake Residential Architects is a premium one-page Webpack site for a Seattl
 The project is a static one-page site built through Webpack:
 
 - `src/index.html` defines content structure, section anchors, accessible labels, and image assets for the bundled site.
-- `src/styles.scss` defines design tokens, editorial layout, responsive behavior, animation states, and component presentation.
-- `src/index.js` imports the SCSS and enhances the page with mobile navigation, sticky header state, reveal-on-scroll classes, horizontal rail controls, FAQ accordion behavior, and a local newsletter acknowledgement.
+- `src/style/styles.scss` defines Sass design tokens, editorial layout, responsive behavior, animation states, and component presentation.
+- `src/index.js` imports the SCSS and enhances the page through OOP controllers for mobile navigation, sticky header state, reveal-on-scroll classes, horizontal rail controls, FAQ accordion behavior, and a local newsletter acknowledgement.
 - `webpack.config.js` builds `src/index.js` and `src/index.html` into `public/`.
-- Root `index.html`, `styles.css`, and `script.js` are static preview copies for direct browser opening.
 
 The site should work without JavaScript for core reading and navigation, while JavaScript improves interaction quality.
 

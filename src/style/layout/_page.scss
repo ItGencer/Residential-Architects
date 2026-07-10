@@ -1,0 +1,17 @@
+@use "../abstracts/settings" as *;
+
+.site-header__nav,
+.hero,
+.about,
+.portfolio,
+.services,
+.faq,
+.team,
+.contact,
+.site-footer {
+  padding-inline: $site-pad;
+
+  @media (max-width: 560px) {
+    padding-inline: $site-pad-mobile;
+  }
+}

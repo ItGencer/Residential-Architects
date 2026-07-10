@@ -1,0 +1,89 @@
+@use "../abstracts/settings" as *;
+
+.faq {
+  padding-top: $section-gap;
+  padding-bottom: $section-gap;
+  border-top: 1px solid $line;
+  border-bottom: 1px solid $line;
+
+  &__header {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.25fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: start;
+
+    &__label {
+      @include mono-label;
+
+      margin: 0;
+    }
+
+    &__title {
+      @include display-heading;
+
+      font-size: clamp(2.7rem, 6vw, 7rem);
+    }
+  }
+
+  &__list {
+    margin-top: clamp(2.5rem, 5vw, 4.5rem);
+
+    &__item {
+      border-top: 1px solid $line;
+
+      &:last-child {
+        border-bottom: 1px solid $line;
+      }
+
+      &__heading {
+        margin: 0;
+      }
+
+      &__button {
+        width: 100%;
+        min-height: 5.5rem;
+        padding: 1.5rem 0;
+        border: 0;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        text-align: left;
+        cursor: pointer;
+        font-family: $font-display;
+        font-size: clamp(1.6rem, 3vw, 3rem);
+        line-height: 1.05;
+
+        &[aria-expanded="true"] {
+          .faq__list__item__button__icon {
+            transform: rotate(45deg);
+          }
+        }
+
+        &__icon {
+          flex: 0 0 auto;
+          width: 2rem;
+          text-align: center;
+          font-family: $font-sans;
+          transition: transform 400ms $ease;
+        }
+      }
+
+      &__panel {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 500ms $ease;
+
+        &__text {
+          max-width: 44rem;
+          margin: 0;
+          padding: 0 0 1.75rem;
+          color: $muted;
+          font-size: 1.05rem;
+          line-height: 1.7;
+        }
+      }
+    }
+  }
+}

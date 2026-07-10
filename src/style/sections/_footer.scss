@@ -1,0 +1,135 @@
+@use "../abstracts/settings" as *;
+
+.site-footer {
+  padding-top: $section-gap;
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+  background: $charcoal;
+  color: $paper;
+
+  &__newsletter {
+    max-width: 58rem;
+
+    &__label {
+      @include mono-label;
+
+      margin: 0;
+      color: color-mix(in srgb, $paper 74%, transparent);
+    }
+
+    &__title {
+      @include display-heading;
+
+      margin-top: 1rem;
+      color: $paper;
+      font-size: clamp(3.2rem, 8vw, 9rem);
+    }
+
+    &__text {
+      @include body-copy;
+
+      color: color-mix(in srgb, $paper 74%, transparent);
+    }
+
+    &__form {
+      margin-top: 2rem;
+      max-width: 42rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.75rem;
+
+      &__input,
+      &__button {
+        min-height: 3.4rem;
+        border: 1px solid color-mix(in srgb, $paper 36%, transparent);
+        border-radius: 0;
+      }
+
+      &__input {
+        width: 100%;
+        padding: 0 1rem;
+        background: transparent;
+        color: $paper;
+
+        &::placeholder {
+          color: color-mix(in srgb, $paper 56%, transparent);
+        }
+      }
+
+      &__button {
+        padding: 0 1.2rem;
+        background: $paper;
+        color: $charcoal;
+        cursor: pointer;
+        font-family: $font-mono;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+    }
+
+    &__status {
+      min-height: 1.5rem;
+      color: color-mix(in srgb, $paper 74%, transparent);
+    }
+  }
+
+  &__details {
+    margin-top: clamp(4rem, 8vw, 7rem);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.2fr 1.2fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    border-top: 1px solid color-mix(in srgb, $paper 16%, transparent);
+    padding-top: 2rem;
+
+    &__nav,
+    &__contact {
+      font-style: normal;
+
+      &__title {
+        @include mono-label;
+
+        margin: 0 0 1rem;
+        color: color-mix(in srgb, $paper 74%, transparent);
+        font-size: 0.72rem;
+      }
+
+      &__link {
+        display: block;
+        width: fit-content;
+        margin-bottom: 0.6rem;
+        color: color-mix(in srgb, $paper 74%, transparent);
+      }
+
+      &__text {
+        margin: 0;
+        color: color-mix(in srgb, $paper 74%, transparent);
+        line-height: 1.6;
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: clamp(3rem, 8vw, 7rem);
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    &__brand {
+      color: $paper;
+      font-family: $font-display;
+      font-size: clamp(4rem, 18vw, 17rem);
+      line-height: 0.78;
+      letter-spacing: 0;
+    }
+
+    &__link {
+      @include mono-label;
+      @include underline-link;
+
+      flex: 0 0 auto;
+      color: color-mix(in srgb, $paper 74%, transparent);
+      font-size: 0.72rem;
+    }
+  }
+}

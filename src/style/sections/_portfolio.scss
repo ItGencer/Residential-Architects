@@ -1,0 +1,109 @@
+@use "../abstracts/settings" as *;
+
+.portfolio {
+  padding-top: $section-gap;
+  padding-bottom: $section-gap;
+
+  &__header {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.25fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: start;
+
+    &__label {
+      @include mono-label;
+
+      margin: 0;
+    }
+
+    &__title {
+      @include display-heading;
+
+      max-width: 74rem;
+      font-size: clamp(2.6rem, 5.6vw, 6.25rem);
+    }
+  }
+
+  &__toolbar {
+    margin-top: clamp(2.5rem, 5vw, 5rem);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    &__title {
+      @include mono-label;
+
+      margin: 0;
+    }
+
+    &__controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &__button {
+        @include circle-button;
+      }
+    }
+  }
+
+  &__rail {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(18rem, 33vw);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: $site-pad;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &__project {
+      scroll-snap-align: start;
+      overflow: hidden;
+
+      &__link {
+        display: grid;
+        gap: 0.95rem;
+
+        &:hover,
+        &:focus-visible {
+          .portfolio__rail__project__link__image {
+            transform: scale(1.025);
+            filter: saturate(0.95) contrast(1.03);
+          }
+        }
+
+        &__image {
+          height: clamp(25rem, 52vw, 44rem);
+          background: $stone-deep;
+          transition:
+            transform 700ms $ease,
+            filter 700ms $ease;
+        }
+
+        &__meta {
+          display: flex;
+          align-items: baseline;
+          justify-content: space-between;
+          gap: 1rem;
+          font-family: $font-display;
+          font-size: clamp(1.35rem, 2.1vw, 2rem);
+
+          &__year {
+            color: $muted;
+            font-family: $font-mono;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+          }
+        }
+      }
+    }
+  }
+}

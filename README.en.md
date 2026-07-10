@@ -28,10 +28,8 @@ Generated assets are emitted to `public/`.
 ## Source Of Truth
 
 - `src/index.html` - bundled page template
-- `src/styles.scss` - bundled styling
-- `src/index.js` - bundled interaction layer
-
-Root `index.html`, `styles.css`, and `script.js` are static preview copies that can be opened directly in a browser.
+- `src/style/styles.scss` - bundled styling
+- `src/index.js` - bundled OOP interaction layer
 
 ## Notes
 
