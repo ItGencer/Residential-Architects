@@ -1,0 +1,76 @@
+@use "../abstracts/settings" as *;
+
+.team {
+  padding-top: $section-gap;
+  padding-bottom: $section-gap;
+
+  &__header {
+    display: grid;
+    grid-template-columns: minmax(9rem, 0.25fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: start;
+
+    &__label {
+      @include mono-label;
+
+      margin: 0;
+    }
+
+    &__title {
+      @include display-heading;
+
+      font-size: clamp(2.6rem, 5.6vw, 6.25rem);
+    }
+
+    &__text {
+      @include body-copy;
+
+      max-width: 42rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__grid {
+    margin-top: clamp(2.5rem, 5vw, 5rem);
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1px;
+    background: $line;
+    border: 1px solid $line;
+
+    &__member {
+      background: $stone;
+      padding: clamp(0.7rem, 1.2vw, 1rem);
+
+      &:hover {
+        .team__grid__member__image {
+          filter: grayscale(0.25) contrast(1);
+          transform: scale(1.01);
+        }
+      }
+
+      &__image {
+        aspect-ratio: 3 / 4;
+        height: auto;
+        filter: grayscale(1) contrast(0.95);
+        transition:
+          filter 550ms $ease,
+          transform 550ms $ease;
+      }
+
+      &__name {
+        margin: 1rem 0 0.25rem;
+        font-family: $font-display;
+        font-size: clamp(1.2rem, 1.6vw, 1.55rem);
+        font-weight: 400;
+      }
+
+      &__role {
+        @include mono-label;
+
+        margin: 0;
+        font-size: 0.68rem;
+      }
+    }
+  }
+}

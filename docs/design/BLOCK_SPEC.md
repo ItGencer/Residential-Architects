@@ -1,7 +1,7 @@
 # Block Specification
 
 ## Pages
-- Home - A premium one-page editorial website for Handshake, a residential architecture studio based in Seattle. Source lives in `src/index.html` for Webpack builds, with a root static preview copy.
+- Home - A premium one-page editorial website for Handshake, a residential architecture studio based in Seattle. Source lives in `src/index.html` for Webpack builds.
 
 ## Blocks
 ### Header
@@ -114,7 +114,7 @@
 ### Navigation Menu
 - Desktop: horizontal links around wordmark.
 - Mobile: fixed full-screen menu below sticky header.
-- States: closed/open via `body.nav-open` and `aria-expanded`.
+- States: closed/open via `body.is-navigation-open` and `aria-expanded`.
 
 ### Gallery Rail
 - Props: rail id, scroll-snap cards.

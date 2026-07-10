@@ -1,81 +1,126 @@
-import "./styles.scss";
+import "./style/styles.scss";
 
-const body = document.body;
-const header = document.querySelector("[data-header]");
-const navToggle = document.querySelector("[data-nav-toggle]");
-const navMenu = document.querySelector("[data-nav-menu]");
-const mobileNavQuery = window.matchMedia("(max-width: 820px)");
-
-function syncMobileNavigation(isOpen = body.classList.contains("nav-open")) {
-  if (!navMenu || !navToggle) {
-    return;
+class NavigationController {
+  constructor() {
+    this.body = document.body;
+    this.header = document.querySelector("[data-header]");
+    this.toggle = document.querySelector("[data-nav-toggle]");
+    this.menu = document.querySelector("[data-nav-menu]");
+    this.mobileQuery = window.matchMedia("(max-width: 820px)");
+    this.openClass = "is-navigation-open";
+    this.scrolledClass = "is-scrolled";
   }
 
-  if (mobileNavQuery.matches) {
-    navMenu.inert = !isOpen;
-    navMenu.setAttribute("aria-hidden", String(!isOpen));
-  } else {
-    body.classList.remove("nav-open");
-    navMenu.inert = false;
-    navMenu.removeAttribute("aria-hidden");
-    navToggle.setAttribute("aria-expanded", "false");
+  init() {
+    this.setHeaderState();
+    this.syncMenuState();
+    window.addEventListener("scroll", () => this.setHeaderState(), { passive: true });
+    window.addEventListener("keydown", (event) => this.handleEscape(event));
+    this.mobileQuery.addEventListener("change", () => this.closeMenu());
+    this.toggle?.addEventListener("click", () => this.toggleMenu());
+    this.menu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => this.closeMenu());
+    });
+  }
+
+  get isOpen() {
+    return this.body.classList.contains(this.openClass);
+  }
+
+  setHeaderState() {
+    this.header?.classList.toggle(this.scrolledClass, window.scrollY > 12);
+  }
+
+  syncMenuState(isOpen = this.isOpen) {
+    if (!this.menu || !this.toggle) {
+      return;
+    }
+
+    if (this.mobileQuery.matches) {
+      this.menu.inert = !isOpen;
+      this.menu.setAttribute("aria-hidden", String(!isOpen));
+      this.toggle.setAttribute("aria-expanded", String(isOpen));
+      return;
+    }
+
+    this.body.classList.remove(this.openClass);
+    this.menu.inert = false;
+    this.menu.removeAttribute("aria-hidden");
+    this.toggle.setAttribute("aria-expanded", "false");
+  }
+
+  toggleMenu() {
+    const isOpen = this.body.classList.toggle(this.openClass);
+    this.syncMenuState(isOpen);
+  }
+
+  closeMenu() {
+    this.body.classList.remove(this.openClass);
+    this.syncMenuState(false);
+  }
+
+  handleEscape(event) {
+    if (event.key !== "Escape" || !this.isOpen) {
+      return;
+    }
+
+    this.closeMenu();
+    this.toggle?.focus();
   }
 }
 
-function setHeaderState() {
-  header?.classList.toggle("is-scrolled", window.scrollY > 12);
-}
-
-setHeaderState();
-syncMobileNavigation();
-window.addEventListener("scroll", setHeaderState, { passive: true });
-mobileNavQuery.addEventListener("change", () => syncMobileNavigation(false));
-
-navToggle?.addEventListener("click", () => {
-  const isOpen = body.classList.toggle("nav-open");
-  navToggle.setAttribute("aria-expanded", String(isOpen));
-  syncMobileNavigation(isOpen);
-});
-
-navMenu?.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    body.classList.remove("nav-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-    syncMobileNavigation(false);
-  });
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && body.classList.contains("nav-open")) {
-    body.classList.remove("nav-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-    syncMobileNavigation(false);
-    navToggle?.focus();
+class RevealController {
+  constructor() {
+    this.elements = [...document.querySelectorAll("[data-reveal]")];
+    this.visibleClass = "is-visible";
   }
-});
 
-const revealElements = document.querySelectorAll("[data-reveal]");
+  init() {
+    if (!this.elements.length) {
+      return;
+    }
 
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { rootMargin: "0px 0px -12% 0px", threshold: 0.12 }
-  );
+    if (!("IntersectionObserver" in window)) {
+      this.showAll();
+      return;
+    }
 
-  revealElements.forEach((element) => revealObserver.observe(element));
-} else {
-  revealElements.forEach((element) => element.classList.add("is-visible"));
+    const observer = new IntersectionObserver((entries) => this.reveal(entries, observer), {
+      rootMargin: "0px 0px -12% 0px",
+      threshold: 0.12,
+    });
+
+    this.elements.forEach((element) => observer.observe(element));
+  }
+
+  reveal(entries, observer) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      entry.target.classList.add(this.visibleClass);
+      observer.unobserve(entry.target);
+    });
+  }
+
+  showAll() {
+    this.elements.forEach((element) => element.classList.add(this.visibleClass));
+  }
 }
 
-document.querySelectorAll("[data-scroll-button]").forEach((button) => {
-  button.addEventListener("click", () => {
+class RailScroller {
+  constructor() {
+    this.buttons = [...document.querySelectorAll("[data-scroll-button]")];
+  }
+
+  init() {
+    this.buttons.forEach((button) => {
+      button.addEventListener("click", () => this.scrollRail(button));
+    });
+  }
+
+  scrollRail(button) {
     const targetId = button.getAttribute("data-target");
     const direction = Number(button.getAttribute("data-direction")) || 1;
     const rail = document.getElementById(targetId);
@@ -88,54 +133,88 @@ document.querySelectorAll("[data-scroll-button]").forEach((button) => {
       left: direction * rail.clientWidth * 0.82,
       behavior: "smooth",
     });
-  });
-});
-
-const accordionButtons = document.querySelectorAll(".accordion-trigger");
-
-function setPanelHeight(button, isExpanded) {
-  const panel = document.getElementById(button.getAttribute("aria-controls"));
-
-  if (!panel) {
-    return;
   }
-
-  panel.style.maxHeight = isExpanded ? `${panel.scrollHeight}px` : "0px";
 }
 
-accordionButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const isExpanded = button.getAttribute("aria-expanded") === "true";
-    const nextState = !isExpanded;
+class Accordion {
+  constructor() {
+    this.buttons = [...document.querySelectorAll("[data-accordion-trigger]")];
+  }
 
+  init() {
+    this.buttons.forEach((button) => {
+      button.addEventListener("click", () => this.togglePanel(button));
+    });
+    window.addEventListener("resize", () => this.refreshOpenPanels());
+  }
+
+  togglePanel(button) {
+    const nextState = button.getAttribute("aria-expanded") !== "true";
     button.setAttribute("aria-expanded", String(nextState));
-    setPanelHeight(button, nextState);
-  });
-});
+    this.setPanelHeight(button, nextState);
+  }
 
-window.addEventListener("resize", () => {
-  accordionButtons.forEach((button) => {
-    if (button.getAttribute("aria-expanded") === "true") {
-      setPanelHeight(button, true);
+  refreshOpenPanels() {
+    this.buttons.forEach((button) => {
+      if (button.getAttribute("aria-expanded") === "true") {
+        this.setPanelHeight(button, true);
+      }
+    });
+  }
+
+  setPanelHeight(button, isExpanded) {
+    const panel = document.getElementById(button.getAttribute("aria-controls"));
+
+    if (!panel) {
+      return;
     }
-  });
-});
 
-const newsletterForm = document.querySelector("[data-newsletter-form]");
-const formStatus = document.querySelector("[data-form-status]");
+    panel.style.maxHeight = isExpanded ? `${panel.scrollHeight}px` : "0px";
+  }
+}
 
-newsletterForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(newsletterForm);
-  const email = String(formData.get("email") || "").trim();
-
-  if (!email) {
-    return;
+class NewsletterForm {
+  constructor() {
+    this.form = document.querySelector("[data-newsletter-form]");
+    this.status = document.querySelector("[data-form-status]");
+    this.successMessage = "Thank you. Studio notes will arrive quietly.";
   }
 
-  newsletterForm.reset();
-
-  if (formStatus) {
-    formStatus.textContent = "Thank you. Studio notes will arrive quietly.";
+  init() {
+    this.form?.addEventListener("submit", (event) => this.handleSubmit(event));
   }
-});
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const email = String(new FormData(this.form).get("email") || "").trim();
+
+    if (!email) {
+      return;
+    }
+
+    this.form.reset();
+
+    if (this.status) {
+      this.status.textContent = this.successMessage;
+    }
+  }
+}
+
+class SiteApp {
+  constructor(controllers) {
+    this.controllers = controllers;
+  }
+
+  init() {
+    this.controllers.forEach((controller) => controller.init());
+  }
+}
+
+new SiteApp([
+  new NavigationController(),
+  new RevealController(),
+  new RailScroller(),
+  new Accordion(),
+  new NewsletterForm(),
+]).init();

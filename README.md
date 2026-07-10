@@ -19,15 +19,11 @@ Build production assets:
 pnpm run build
 ```
 
-You can also open the root `index.html` directly as a static preview.
-
 ## Project Files
 
 - `src/index.html` - Webpack HTML template for the one-page site.
-- `src/styles.scss` - Responsive editorial design system and layout.
-- `src/index.js` - Navigation, scroll reveals, carousels, FAQ accordion, and newsletter form behavior.
-- `index.html`, `styles.css`, `script.js` - Static preview copy of the site.
-- `index.js` - Scaffold compatibility note; Webpack entry lives in `src/index.js`.
+- `src/style/styles.scss` - Responsive editorial design system and layout.
+- `src/index.js` - OOP interaction layer for navigation, scroll reveals, carousels, FAQ accordion, and newsletter form behavior.
 - `webpack.config.js` - Webpack build and dev server configuration.
 - `package.json` - pnpm package metadata, scripts, and development dependencies.
 - `pnpm-workspace.yaml` - Records the optional watcher build-script approval decision.

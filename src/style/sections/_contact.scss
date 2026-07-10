@@ -1,0 +1,74 @@
+@use "../abstracts/settings" as *;
+
+.contact {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.32fr) minmax(18rem, 0.74fr) minmax(0, 0.88fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-top: $section-gap;
+  padding-bottom: $section-gap;
+
+  &__label {
+    @include mono-label;
+
+    margin: 0;
+  }
+
+  &__media {
+    height: clamp(28rem, 48vw, 48rem);
+    margin: 0;
+    background: $stone-deep;
+  }
+
+  &__content {
+    padding-left: clamp(0rem, 3vw, 2rem);
+
+    &__title {
+      @include display-heading;
+
+      font-size: clamp(3.2rem, 8vw, 9rem);
+    }
+
+    &__statement {
+      margin-top: 1.5rem;
+      color: $charcoal;
+      font-family: $font-display;
+      font-size: clamp(2rem, 4vw, 4.5rem);
+      line-height: 1;
+    }
+
+    &__text {
+      @include body-copy;
+    }
+
+    &__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.2rem;
+      margin-top: 1.2rem;
+      padding: 0.95rem 1.3rem;
+      border: 1px solid $charcoal;
+      background: $charcoal;
+      color: $paper;
+      font-family: $font-mono;
+      font-size: 0.76rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition:
+        background 300ms $ease,
+        color 300ms $ease,
+        transform 300ms $ease;
+
+      &:hover,
+      &:focus-visible {
+        background: transparent;
+        color: $charcoal;
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}

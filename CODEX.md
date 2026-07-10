@@ -16,16 +16,11 @@
 | `pnpm install` | Install Webpack and build tooling dependencies. |
 | `pnpm start` | Run `webpack serve --mode development` on the configured dev server. |
 | `pnpm run build` | Build production assets into `public/`. |
-| Open `index.html` | View the static preview copy directly in a browser. |
 
 ## Project Structure
 - `src/index.html` - Webpack HTML template for header, hero, about, portfolio, services, FAQ, team, contact, newsletter, and footer sections.
-- `src/styles.scss` - Source visual system, responsive layouts, animation rules, carousels, accordions, and mobile navigation styling.
-- `src/index.js` - Source interaction layer for sticky header state, mobile menu, reveal animations, gallery controls, FAQ accordion, and newsletter acknowledgement.
-- `index.html` - Static preview copy that can be opened directly.
-- `styles.css` - Static preview styles.
-- `script.js` - Static preview JavaScript.
-- `index.js` - Scaffold compatibility note; Webpack entry lives in `src/index.js`.
+- `src/style/styles.scss` - Source visual system, responsive layouts, animation rules, carousels, accordions, and mobile navigation styling.
+- `src/index.js` - Source OOP interaction layer for sticky header state, mobile menu, reveal animations, gallery controls, FAQ accordion, and newsletter acknowledgement.
 - `package.json` - pnpm package metadata, scripts, dev dependencies, and build-script policy.
 - `pnpm-lock.yaml` - Generated pnpm lockfile after dependency installation.
 - `pnpm-workspace.yaml` - Build-script approval metadata; `@parcel/watcher` is explicitly not approved.
@@ -47,8 +42,7 @@
 ## How to Contribute / Modify
 1. Treat `src/` as the source of truth for Webpack builds.
 2. Update content in `src/index.html` and keep section anchors aligned with the navigation.
-3. Adjust global visual tokens in `src/styles.scss` before making one-off component changes.
+3. Adjust global visual tokens in `src/style/styles.scss` before making one-off component changes.
 4. Keep interactions in `src/index.js` small, accessible, and progressive-enhancement friendly.
-5. If maintaining the direct-open static preview, mirror source changes to root `index.html`, `styles.css`, and `script.js`.
-6. Test desktop, tablet, and mobile layouts after changing typography, images, or grid behavior.
-7. Update `docs/codex/TASKS.md`, `docs/codex/DECISIONS.md`, and `docs/design/BLOCK_SPEC.md` when changing scope, design direction, or key interactions.
+5. Test desktop, tablet, and mobile layouts after changing typography, images, or grid behavior.
+6. Update `docs/codex/TASKS.md`, `docs/codex/DECISIONS.md`, and `docs/design/BLOCK_SPEC.md` when changing scope, design direction, or key interactions.

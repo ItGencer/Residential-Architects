@@ -2,7 +2,7 @@
 
 ## Levels of Testing
 - **Unit tests**: No JavaScript test framework is configured. `[NEEDS CONFIRMATION]`
-- **Build tests**: Run `pnpm run build` after dependencies are installed to confirm Webpack compiles `src/index.js`, `src/styles.scss`, and `src/index.html`.
+- **Build tests**: Run `pnpm run build` after dependencies are installed to confirm Webpack compiles `src/index.js`, `src/style/styles.scss`, and `src/index.html`.
 - **Integration tests**: Manually validate navigation, carousels, FAQ accordion, newsletter acknowledgement, and responsive menu behavior.
 - **E2E tests**: Recommended future default is Playwright for anchor navigation, mobile menu, carousel controls, accordion state, and newsletter form flow. `[NEEDS CONFIRMATION]`
 - **Visual regression**: Recommended future default is screenshot comparison at desktop, tablet, and mobile breakpoints. `[NEEDS CONFIRMATION]`
@@ -26,8 +26,8 @@
 - Placeholder contact details and image sources are replaced before launch.
 
 ## How to Fix Issues
-- For overflow or cramped text, adjust section grid columns, `clamp()` values, or mobile breakpoints in `styles.css`.
-- For interaction bugs, keep changes scoped to `script.js` and preserve aria state updates.
+- For overflow or cramped text, adjust section grid columns, `clamp()` values, or mobile breakpoints in `src/style/styles.scss`.
+- For interaction bugs, keep changes scoped to `src/index.js` and preserve aria state updates.
 - For image issues, replace the affected URL, set a better focal point with `object-position`, or optimize the asset dimensions.
 - For accessibility issues, prefer semantic HTML controls before adding custom behavior.
 - For performance issues, compress final assets, add explicit dimensions where useful, and avoid adding heavy dependencies.

@@ -28,10 +28,8 @@ pnpm run build
 ## Джерело правди
 
 - `src/index.html` — шаблон сторінки для Webpack
-- `src/styles.scss` — основні стилі
+- `src/style/styles.scss` — основні стилі
 - `src/index.js` — інтерактивна логіка
-
-Кореневі `index.html`, `styles.css` і `script.js` — це статична preview-копія, яку можна відкрити напряму в браузері.
 
 ## Нотатки
 
