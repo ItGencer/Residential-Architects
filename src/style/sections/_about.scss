@@ -61,4 +61,53 @@
       }
     }
   }
+
+  &__logos {
+    grid-column: 1 / -1;
+
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border: 1px solid $stone;
+      background: $stone;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 8rem;
+      padding: 2rem 1.5rem;
+      background:#fff;
+      border-bottom: 1px solid $stone;
+      border-right: 1px solid $stone;
+      color: $charcoal;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition-delay: 0ms;
+    }
+
+    &__item:nth-child(4n) {
+      border-right: none;
+    }
+
+    &__item:nth-last-child(-n + 4) {
+      border-bottom: none;
+    }
+
+    &__item:nth-child(1) { transition-delay: 0ms; }
+    &__item:nth-child(2) { transition-delay: 80ms; }
+    &__item:nth-child(3) { transition-delay: 140ms; }
+    &__item:nth-child(4) { transition-delay: 220ms; }
+    &__item:nth-child(5) { transition-delay: 300ms; }
+    &__item:nth-child(6) { transition-delay: 380ms; }
+    &__item:nth-child(7) { transition-delay: 460ms; }
+    &__item:nth-child(8) { transition-delay: 540ms; }
+    &__item:nth-child(9) { transition-delay: 620ms; }
+    &__item:nth-child(10) { transition-delay: 700ms; }
+    &__item:nth-child(11) { transition-delay: 780ms; }
+    &__item:nth-child(12) { transition-delay: 860ms; }
+  }
 }

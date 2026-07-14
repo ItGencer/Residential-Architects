@@ -1,34 +1,19 @@
 @use "../abstracts/settings" as *;
 
 .hero {
+  position: relative;
   min-height: calc(100svh - 4.75rem);
   padding-top: clamp(2rem, 6vw, 5rem);
   padding-bottom: clamp(3rem, 8vw, 7rem);
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
-  align-items: end;
+  grid-template-columns: 1fr;
   gap: clamp(2rem, 5vw, 5rem);
 
   &__intro {
-    &__meta {
-      margin-bottom: clamp(2.5rem, 8vw, 8rem);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.25rem;
-      max-width: min(46rem, 100%);
-      color: $muted;
-      font-family: $font-mono;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    width: min(64rem, 100%);
+    text-align: center;
+    position: relative;
+    z-index: 1;
 
-      &__link {
-        @include underline-link;
-
-        color: $charcoal;
-      }
-    }
 
     &__title {
       margin: 0;
@@ -47,15 +32,32 @@
   }
 
   &__gallery {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(7rem, 0.52fr);
-    align-items: end;
-    gap: clamp(0.8rem, 2vw, 1.25rem);
+    position: absolute;
+    top: 166px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    & span {
+      color: $muted;
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 1;
+    }
 
     &__image {
       margin: 0;
       overflow: hidden;
       background: $stone-deep;
+
+ &__link {
+        @include underline-link;
+        color: $charcoal;
+    }
 
       &--large {
         height: min(68svh, 45rem);
