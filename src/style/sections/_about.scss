@@ -2,29 +2,41 @@
 
 .about {
   display: grid;
-  grid-template-columns: minmax(9rem, 0.32fr) minmax(0, 0.9fr) minmax(18rem, 0.78fr);
-  gap: clamp(1.5rem, 4vw, 4rem);
-  padding-top: $section-gap;
-  padding-bottom: $section-gap;
+  grid-template-columns: minmax(0, 0.66fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2rem, 3.4vw, 3.2rem);
+  padding-top: clamp(4.5rem, 8vw, 7rem);
+  padding-bottom: clamp(4.5rem, 8vw, 7rem);
 
   &__label {
     @include mono-label;
 
     margin: 0;
+    padding-top: 0.35rem;
+    grid-column: 1 / 2;
+    color: $charcoal;
   }
 
   &__content {
+    grid-column: 1 / 2;
+    max-width: 34.5rem;
+    padding-top: 0.35rem;
+
     &__title {
       @include display-heading;
 
-      max-width: 74rem;
-      font-size: clamp(2.6rem, 5.6vw, 6.25rem);
+      max-width: 38rem;
+      margin: 0 0 1.15rem;
+      font-size: clamp(2.4rem, 4.3vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.015em;
     }
 
     &__text {
       @include body-copy;
 
-      max-width: 45rem;
+      max-width: 37rem;
+      margin: 0 0 1rem;
     }
 
     &__link {
@@ -32,61 +44,83 @@
       @include underline-link;
 
       display: inline-block;
-      margin-top: 1.2rem;
+      margin-top: 0.8rem;
+      padding-bottom: 0.22rem;
       color: $charcoal;
+      font-size: 0.72rem;
     }
   }
 
   &__media {
     position: relative;
-    min-height: clamp(30rem, 52vw, 47rem);
+    min-height: clamp(30rem, 45vw, 41rem);
+    grid-column: 2 / 3;
+    grid-row: 1 / span 2;
+    align-self: stretch;
 
     &__image {
       position: absolute;
+      display: block;
+      object-fit: cover;
+      object-position: center;
       background: $stone-deep;
+      box-shadow: 0 1.25rem 2.75rem rgba(23, 23, 21, 0.08);
 
       &--primary {
         top: 0;
         right: 0;
-        width: 78%;
-        height: 72%;
+        width: min(85%, 44rem);
+        height: 78%;
+        border-radius: 0.2rem;
       }
 
       &--secondary {
         left: 0;
         bottom: 0;
-        width: 55%;
+        width: 56%;
         height: 38%;
-        border: 0.7rem solid $stone;
+        border: 0.8rem solid $paper;
+        border-radius: 0.18rem;
+        transform: translateY(1.2rem);
       }
     }
   }
 
   &__logos {
     grid-column: 1 / -1;
+    margin-top: clamp(2rem, 3.6vw, 2.8rem);
+    padding-top: 1.15rem;
+    border-top: 1px solid $line;
 
     &__grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      border: 1px solid $stone;
-      background: $stone;
+      border: 1px solid $line;
+      background: $paper;
+      overflow: hidden;
     }
 
     &__item {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 8rem;
-      padding: 2rem 1.5rem;
-      background:#fff;
-      border-bottom: 1px solid $stone;
-      border-right: 1px solid $stone;
-      color: $charcoal;
-      letter-spacing: 0.1em;
+      min-height: 6.75rem;
+      padding: 1rem 0.9rem;
+      background: $paper;
+      border-bottom: 1px solid $line;
+      border-right: 1px solid $line;
+      color: $muted;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-size: 0.95rem;
-      font-weight: 700;
-      transition-delay: 0ms;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: transform 320ms $ease, color 320ms $ease;
+
+      &:hover,
+      &:focus-visible {
+        color: $charcoal;
+        transform: translateY(-2px);
+      }
     }
 
     &__item:nth-child(4n) {
