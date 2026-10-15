@@ -16,7 +16,7 @@
 - [ ] Connect newsletter form to a production email/newsletter provider. `[NEEDS CONFIRMATION]`
 - [ ] Confirm hosting target and deployment workflow. `[NEEDS CONFIRMATION]`
 - [ ] Run cross-browser checks in Chrome, Safari, Firefox, and Edge.
-- [ ] Run `pnpm install` and `pnpm run build` after dependency metadata changes.
+- [ ] Run `npm install` and `npm run build` after dependency metadata changes.
 - [ ] Run accessibility review for focus order, color contrast, labels, reduced motion, and keyboard operation.
 - [ ] Run responsive visual QA at desktop, laptop, tablet, and mobile widths.
 - [ ] Optimize final imagery for file size, focal point, and loading performance.

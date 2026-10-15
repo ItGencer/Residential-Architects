@@ -22,10 +22,10 @@ Trade-offs: Direct file preview is no longer supported; local review should use 
 
 ---
 
-Date: 2026-07-09
-Decision: Use pnpm package metadata and ignore the optional `@parcel/watcher` build script non-interactively.
-Rationale: The local global npm command is misconfigured, while bundled pnpm is available. The ignored watcher build script blocks non-interactive installs but is not required for compiling this static Webpack site.
-Trade-offs: Dev-server file watching may rely on fallback behavior if the optional watcher is not built.
+Date: 2026-10-15
+Decision: Use npm for dependency installation and maintain the dependency lockfile with npm.
+Rationale: npm is the project's package manager and is available in the development environment.
+Trade-offs: Optional native tooling may use its own installation scripts when npm installs dependencies.
 
 ---
 

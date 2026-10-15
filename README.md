@@ -7,8 +7,8 @@ A premium one-page website for Handshake, a residential architecture studio base
 Install dependencies, then start the Webpack dev server:
 
 ```powershell
-pnpm install
-pnpm start
+npm install
+npm start
 ```
 
 The dev server is configured for `http://localhost:3000`.
@@ -16,7 +16,7 @@ The dev server is configured for `http://localhost:3000`.
 Build production assets:
 
 ```powershell
-pnpm run build
+npm run build
 ```
 
 ## Project Files
@@ -25,7 +25,7 @@ pnpm run build
 - `src/style/styles.scss` - Responsive editorial design system and layout.
 - `src/index.js` - OOP interaction layer for navigation, scroll reveals, carousels, FAQ accordion, and newsletter form behavior.
 - `webpack.config.js` - Webpack build and dev server configuration.
-- `package.json` - pnpm package metadata, scripts, and development dependencies.
-- `pnpm-workspace.yaml` - Records the optional watcher build-script approval decision.
+- `package.json` - npm package metadata, scripts, and development dependencies.
+- `package-lock.json` - Reproducible npm dependency lockfile.
 - `CODEX.md` - Codex operating manual for future work.
 - `docs/` - Product, task, decision, testing, and design documentation.

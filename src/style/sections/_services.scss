@@ -2,7 +2,6 @@
 
 .services {
   display: grid;
-  grid-template-columns: minmax(9rem, 0.32fr) minmax(0, 0.68fr) auto;
   align-items: end;
   gap: clamp(1.5rem, 4vw, 4rem);
   padding-top: $section-gap;
@@ -13,18 +12,20 @@
 
     margin: 0;
   }
-
-  &__content {
     &__title {
       @include display-heading;
 
       font-size: clamp(3.2rem, 8vw, 9rem);
     }
 
+  &__content {
+    display: flex;
+    gap: 15px;
+
     &__text {
       @include body-copy;
     }
-  }
+
 
   &__controls {
     justify-self: end;
@@ -36,6 +37,8 @@
       @include circle-button;
     }
   }
+  }
+
 
   &__rail {
     grid-column: 2 / -1;
