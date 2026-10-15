@@ -68,10 +68,8 @@
           aria-controls="primary-navigation"
           data-nav-toggle
         >
-          <span
-            class="site-header__nav__toggle__line"
-            aria-hidden="true"
-          ></span>
+          <span class="site-header__nav__toggle__line" aria-hidden="true"></span>
+          <span class="site-header__nav__toggle__label">Menu</span>
         </button>
         <div
           class="site-header__nav__menu"
@@ -114,36 +112,23 @@
     <main class="site-main" id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero__intro" data-reveal>
-          <div class="hero__intro__meta">
-            <span class="hero__intro__meta__location">Based in Seattle</span>
-            <a class="hero__intro__meta__link" href="#about">Scroll Down</a>
-          </div>
           <h1 class="hero__intro__title" id="hero-title">
             <span class="hero__intro__title__line">Residential</span>
             <span class="hero__intro__title__line">Architects</span>
           </h1>
         </div>
-        <div
-          class="hero__gallery"
-          aria-label="Featured residential architecture images"
-        >
-          <figure
-            class="hero__gallery__image hero__gallery__image--large"
-            data-reveal
-          >
+        <div class="hero__gallery" aria-label="Featured residential architecture images">
+          <figure class="hero__gallery__image hero__gallery__image--large" data-reveal>
             <img
               class="hero__gallery__image__asset"
               itemprop="image"
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85"
+              src="https://framerusercontent.com/images/JYu3NIesxrwsDnSJS4Uy091RI4.webp"
               alt="Modern residence with white walls, wood details, and warm evening light"
               fetchpriority="high"
               decoding="async"
             />
           </figure>
-          <figure
-            class="hero__gallery__image hero__gallery__image--tall"
-            data-reveal
-          >
+          <figure class="hero__gallery__image hero__gallery__image--tall" data-reveal>
             <img
               class="hero__gallery__image__asset"
               src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
@@ -193,6 +178,46 @@
             loading="lazy"
             decoding="async"
           />
+        </div>
+        <div class="about__logos" data-reveal>
+          <div class="about__logos__grid">
+            <figure class="about__logos__item" data-reveal aria-label="Handshake logo">
+              <span>Handshake</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Logoipsum logo">
+              <span>Logoipsum</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Academy logo">
+              <span>Academy</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Meridien logo">
+              <span>Meridien</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Frame logo">
+              <span>Frame</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Studio logo">
+              <span>Studio</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Cove logo">
+              <span>Cove</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Pulse logo">
+              <span>Pulse</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Nurture logo">
+              <span>Nurture</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Aspect logo">
+              <span>Aspect</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Foundry logo">
+              <span>Foundry</span>
+            </figure>
+            <figure class="about__logos__item" data-reveal aria-label="Draft logo">
+              <span>Draft</span>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -400,45 +425,36 @@
         <p class="services__label" data-reveal>[03] Services</p>
         <h2 class="services__title" id="services-title">How we can help</h2>
         <div class="services__content" data-reveal>
+          <h2 class="services__content__title" id="services-title">How we can help</h2>
           <p class="services__content__text">
             We bring thoughtful modern architecture to new builds, additions,
             remodels, and reimagined interiors, giving every phase enough
             structure to move with confidence.
           </p>
-          <div
-            class="services__content__controls"
-            aria-label="Services carousel controls"
-            data-reveal
-          >
-            <button
-              class="services__controls__button"
-              type="button"
-              data-scroll-button
-              data-target="services-rail"
-              data-direction="-1"
-            >
-              <span aria-hidden="true">&larr;</span>
-              <span class="u-sr-only">Previous services</span>
-            </button>
-            <button
-              class="services__controls__button"
-              type="button"
-              data-scroll-button
-              data-target="services-rail"
-              data-direction="1"
-            >
-              <span aria-hidden="true">&rarr;</span>
-              <span class="u-sr-only">Next services</span>
-            </button>
-          </div>
         </div>
-        <div
-          class="services__rail"
-          id="services-rail"
-          data-reveal
-          tabindex="0"
-          aria-label="Services carousel"
-        >
+        <div class="services__controls" aria-label="Services carousel controls" data-reveal>
+          <button
+            class="services__controls__button"
+            type="button"
+            data-scroll-button
+            data-target="services-rail"
+            data-direction="-1"
+          >
+            <span aria-hidden="true">&larr;</span>
+            <span class="u-sr-only">Previous services</span>
+          </button>
+          <button
+            class="services__controls__button"
+            type="button"
+            data-scroll-button
+            data-target="services-rail"
+            data-direction="1"
+          >
+            <span aria-hidden="true">&rarr;</span>
+            <span class="u-sr-only">Next services</span>
+          </button>
+        </div>
+        <div class="services__rail" id="services-rail" data-reveal tabindex="0" aria-label="Services carousel">
           <article class="services__rail__card">
             <span class="services__rail__card__number">01</span>
             <img
@@ -847,12 +863,7 @@
         </nav>
         <address class="site-footer__details__contact">
           <h3 class="site-footer__details__contact__title">Phone</h3>
-          <a
-            class="site-footer__details__contact__link"
-            href="tel:+12065550148"
-            itemprop="telephone"
-            >+1 111 111 11 11</a
-          >
+          <a class="site-footer__details__contact__link" href="tel:+12065550148" itemprop="telephone">+1 206 555 0148</a>
         </address>
         <address class="site-footer__details__contact">
           <h3 class="site-footer__details__contact__title">Email</h3>
