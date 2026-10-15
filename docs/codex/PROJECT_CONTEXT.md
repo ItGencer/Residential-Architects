@@ -25,7 +25,7 @@ Handshake Residential Architects is a premium one-page Webpack site for a Seattl
 
 ## Technology Stack
 - **Frontend**: Semantic HTML, SCSS/CSS, vanilla JavaScript
-- **Build tool**: pnpm, Webpack 5, Webpack Dev Server, HtmlWebpackPlugin, MiniCssExtractPlugin, css-loader, sass-loader
+- **Build tool**: npm, Webpack 5, Webpack Dev Server, HtmlWebpackPlugin, MiniCssExtractPlugin, css-loader, sass-loader
 - **Backend**: None
 - **Database**: None
 - **Hosting**: `[NEEDS CONFIRMATION]`
@@ -52,5 +52,5 @@ The site should work without JavaScript for core reading and navigation, while J
 ## Dependencies & External Services
 - External image hosting through Unsplash CDN placeholder URLs.
 - Development dependencies are listed in `package.json` for Webpack, SCSS loading, HTML generation, and CSS extraction.
-- Package manager metadata declares `pnpm@11.7.0`.
+- Package manager metadata declares `npm@11.12.1`.
 - Newsletter submission currently has local front-end acknowledgement only; production provider is `[NEEDS CONFIRMATION]`.

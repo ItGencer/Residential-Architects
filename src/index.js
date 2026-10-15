@@ -1,4 +1,7 @@
 import "./style/styles.scss";
+import serviceImage from "./assets/service-1.avif";
+
+document.querySelector("[data-service-image]")?.setAttribute("src", serviceImage);
 
 class NavigationController {
   constructor() {

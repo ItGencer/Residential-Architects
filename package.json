@@ -2,15 +2,10 @@
   "name": "residential-architects",
   "version": "1.0.0",
   "private": true,
-  "packageManager": "pnpm@11.7.0",
+  "packageManager": "npm@11.12.1",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "@parcel/watcher"
-    ]
   },
   "devDependencies": {
     "css-loader": "^7.1.1",

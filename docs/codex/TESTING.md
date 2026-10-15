@@ -2,7 +2,7 @@
 
 ## Levels of Testing
 - **Unit tests**: No JavaScript test framework is configured. `[NEEDS CONFIRMATION]`
-- **Build tests**: Run `pnpm run build` after dependencies are installed to confirm Webpack compiles `src/index.js`, `src/style/styles.scss`, and `src/index.html`.
+- **Build tests**: Run `npm run build` after dependencies are installed to confirm Webpack compiles `src/index.js`, `src/style/styles.scss`, and `src/index.html`.
 - **Integration tests**: Manually validate navigation, carousels, FAQ accordion, newsletter acknowledgement, and responsive menu behavior.
 - **E2E tests**: Recommended future default is Playwright for anchor navigation, mobile menu, carousel controls, accordion state, and newsletter form flow. `[NEEDS CONFIRMATION]`
 - **Visual regression**: Recommended future default is screenshot comparison at desktop, tablet, and mobile breakpoints. `[NEEDS CONFIRMATION]`
@@ -11,7 +11,7 @@
 - **SEO**: Validate document title, meta description, heading hierarchy, link text, image alt text, and crawlable static content.
 
 ## Manual Checks
-- Run `pnpm install` if `node_modules/` is absent, then run `pnpm start` for local browser review and `pnpm run build` before handoff.
+- Run `npm install` if `node_modules/` is absent, then run `npm start` for local browser review and `npm run build` before handoff.
 - Responsiveness on desktop, laptop, tablet, and mobile.
 - Cross-browser checks for Chrome, Firefox, Safari, and Edge.
 - Sticky header remains readable and does not cover anchor content.
