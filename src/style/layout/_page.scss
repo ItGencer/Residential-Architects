@@ -1,6 +1,6 @@
 @use "../abstracts/settings" as *;
 
-.site-header__nav,
+.site-header,
 .hero,
 .about,
 .portfolio,
@@ -9,9 +9,19 @@
 .team,
 .contact,
 .site-footer {
-  padding-inline: $site-pad;
+  padding-inline: $site-pad-mobile;
+}
 
-  @media (max-width: 560px) {
-    padding-inline: $site-pad-mobile;
+@media (min-width: 561px) {
+  .site-header,
+  .hero,
+  .about,
+  .portfolio,
+  .services,
+  .faq,
+  .team,
+  .contact,
+  .site-footer {
+    padding-inline: $site-pad;
   }
 }

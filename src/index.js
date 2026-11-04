@@ -1,7 +1,26 @@
 import "./style/styles.scss";
 import serviceImage from "./assets/service-1.avif";
+import teamImage1 from "./assets/team/team-1.avif";
+import teamImage2 from "./assets/team/team-2.avif";
+import teamImage3 from "./assets/team/team-3.avif";
+import teamImage4 from "./assets/team/team-4.avif";
+import teamImage5 from "./assets/team/team-5.avif";
+import teamImage6 from "./assets/team/team-6.avif";
 
 document.querySelector("[data-service-image]")?.setAttribute("src", serviceImage);
+
+const teamImages = {
+  avery: teamImage1,
+  theo: teamImage2,
+  mara: teamImage3,
+  nolan: teamImage4,
+  lina: teamImage5,
+  sofia: teamImage6,
+};
+
+document.querySelectorAll("[data-team-image]").forEach((image) => {
+  image.setAttribute("src", teamImages[image.dataset.teamImage]);
+});
 
 class NavigationController {
   constructor() {

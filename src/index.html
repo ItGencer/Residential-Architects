@@ -53,60 +53,47 @@
   </head>
   <body>
     <header class="site-header" data-header>
-      <nav class="site-header__nav" aria-label="Primary navigation">
+      <a
+        class="site-header__brand site-header__brand--mobile"
+        href="#top"
+        aria-label="Handshake home"
+      >
+        Handshake
+      </a>
+      <button
+        class="site-header__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        data-nav-toggle
+      >
+        <span class="site-header__toggle__line" aria-hidden="true"></span>
+      </button>
+      <div class="site-header__menu" id="primary-navigation" data-nav-menu>
+        <div class="site-header__menu__group">
+          <a class="site-header__menu__group__link" href="#about">About</a>
+          <a class="site-header__menu__group__link" href="#portfolio"
+            >Portfolio</a
+          >
+          <a class="site-header__menu__group__link" href="#services"
+            >Services</a
+          >
+        </div>
         <a
-          class="site-header__nav__brand site-header__nav__brand--mobile"
+          class="site-header__brand site-header__brand--desktop"
           href="#top"
           aria-label="Handshake home"
         >
           Handshake
         </a>
-        <button
-          class="site-header__nav__toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="primary-navigation"
-          data-nav-toggle
-        >
-          <span class="site-header__nav__toggle__line" aria-hidden="true"></span>
-          <span class="site-header__nav__toggle__label">Menu</span>
-        </button>
-        <div
-          class="site-header__nav__menu"
-          id="primary-navigation"
-          data-nav-menu
-        >
-          <div class="site-header__nav__menu__group">
-            <a class="site-header__nav__menu__group__link" href="#about"
-              >About</a
-            >
-            <a class="site-header__nav__menu__group__link" href="#portfolio"
-              >Portfolio</a
-            >
-            <a class="site-header__nav__menu__group__link" href="#services"
-              >Services</a
-            >
-          </div>
-          <a
-            class="site-header__nav__brand site-header__nav__brand--desktop"
-            href="#top"
-            aria-label="Handshake home"
+        <div class="site-header__menu__group site-header__menu__group--right">
+          <a class="site-header__menu__group__link" href="#team">Team</a>
+          <a class="site-header__menu__group__link" href="#contact">Contact</a>
+          <a class="site-header__menu__group__link" href="#newsletter"
+            >Newsletter</a
           >
-            Handshake
-          </a>
-          <div
-            class="site-header__nav__menu__group site-header__nav__menu__group--right"
-          >
-            <a class="site-header__nav__menu__group__link" href="#team">Team</a>
-            <a class="site-header__nav__menu__group__link" href="#contact"
-              >Contact</a
-            >
-            <a class="site-header__nav__menu__group__link" href="#newsletter"
-              >Newsletter</a
-            >
-          </div>
         </div>
-      </nav>
+      </div>
     </header>
 
     <main class="site-main" id="top">
@@ -117,8 +104,14 @@
             <span class="hero__intro__title__line">Architects</span>
           </h1>
         </div>
-        <div class="hero__gallery" aria-label="Featured residential architecture images">
-          <figure class="hero__gallery__image hero__gallery__image--large" data-reveal>
+        <div
+          class="hero__gallery"
+          aria-label="Featured residential architecture images"
+        >
+          <figure
+            class="hero__gallery__image hero__gallery__image--large"
+            data-reveal
+          >
             <img
               class="hero__gallery__image__asset"
               itemprop="image"
@@ -128,7 +121,10 @@
               decoding="async"
             />
           </figure>
-          <figure class="hero__gallery__image hero__gallery__image--tall" data-reveal>
+          <figure
+            class="hero__gallery__image hero__gallery__image--tall"
+            data-reveal
+          >
             <img
               class="hero__gallery__image__asset"
               src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85"
@@ -181,40 +177,88 @@
         </div>
         <div class="about__logos" data-reveal>
           <div class="about__logos__grid">
-            <figure class="about__logos__item" data-reveal aria-label="Handshake logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Handshake logo"
+            >
               <span>Handshake</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Logoipsum logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Logoipsum logo"
+            >
               <span>Logoipsum</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Academy logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Academy logo"
+            >
               <span>Academy</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Meridien logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Meridien logo"
+            >
               <span>Meridien</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Frame logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Frame logo"
+            >
               <span>Frame</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Studio logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Studio logo"
+            >
               <span>Studio</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Cove logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Cove logo"
+            >
               <span>Cove</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Pulse logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Pulse logo"
+            >
               <span>Pulse</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Nurture logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Nurture logo"
+            >
               <span>Nurture</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Aspect logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Aspect logo"
+            >
               <span>Aspect</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Foundry logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Foundry logo"
+            >
               <span>Foundry</span>
             </figure>
-            <figure class="about__logos__item" data-reveal aria-label="Draft logo">
+            <figure
+              class="about__logos__item"
+              data-reveal
+              aria-label="Draft logo"
+            >
               <span>Draft</span>
             </figure>
           </div>
@@ -425,14 +469,20 @@
         <p class="services__label" data-reveal>[03] Services</p>
         <h2 class="services__title" id="services-title">How we can help</h2>
         <div class="services__content" data-reveal>
-          <h2 class="services__content__title" id="services-title">How we can help</h2>
+          <h2 class="services__content__title" id="services-title">
+            How we can help
+          </h2>
           <p class="services__content__text">
             We bring thoughtful modern architecture to new builds, additions,
             remodels, and reimagined interiors, giving every phase enough
             structure to move with confidence.
           </p>
         </div>
-        <div class="services__controls" aria-label="Services carousel controls" data-reveal>
+        <div
+          class="services__controls"
+          aria-label="Services carousel controls"
+          data-reveal
+        >
           <button
             class="services__controls__button"
             type="button"
@@ -454,7 +504,13 @@
             <span class="u-sr-only">Next services</span>
           </button>
         </div>
-        <div class="services__rail" id="services-rail" data-reveal tabindex="0" aria-label="Services carousel">
+        <div
+          class="services__rail"
+          id="services-rail"
+          data-reveal
+          tabindex="0"
+          aria-label="Services carousel"
+        >
           <article class="services__rail__card">
             <span class="services__rail__card__number">01</span>
             <img
@@ -714,7 +770,7 @@
           <article class="team__grid__member">
             <img
               class="team__grid__member__image"
-              src="<%= require('./assets/team/team-1.avif') %>"
+              data-team-image="avery"
               alt="Portrait of Avery Stone"
               loading="lazy"
               decoding="async"
@@ -725,7 +781,7 @@
           <article class="team__grid__member">
             <img
               class="team__grid__member__image"
-              src="<%= require('./assets/team/team-2.avif') %>"
+              data-team-image="theo"
               alt="Portrait of Theo Martin"
               loading="lazy"
               decoding="async"
@@ -736,7 +792,7 @@
           <article class="team__grid__member">
             <img
               class="team__grid__member__image"
-              src="<%= require('./assets/team/team-3.avif') %>"
+              data-team-image="mara"
               alt="Portrait of Mara Chen"
               loading="lazy"
               decoding="async"
@@ -747,7 +803,7 @@
           <article class="team__grid__member">
             <img
               class="team__grid__member__image"
-              src="<%= require('./assets/team/team-4.avif') %>"
+              data-team-image="nolan"
               alt="Portrait of Nolan Reed"
               loading="lazy"
               decoding="async"
@@ -758,7 +814,7 @@
           <article class="team__grid__member">
             <img
               class="team__grid__member__image"
-              src="<%= require('./assets/team/team-5.avif') %>"
+              data-team-image="lina"
               alt="Portrait of Lina Vale"
               loading="lazy"
               decoding="async"
@@ -769,7 +825,7 @@
           <article class="team__grid__member">
             <img
               class="team__grid__member__image"
-              src="<%= require('./assets/team/team-6.avif') %>"
+              data-team-image="sofia"
               alt="Portrait of Sofia Brooks"
               loading="lazy"
               decoding="async"
@@ -863,7 +919,12 @@
         </nav>
         <address class="site-footer__details__contact">
           <h3 class="site-footer__details__contact__title">Phone</h3>
-          <a class="site-footer__details__contact__link" href="tel:+12065550148" itemprop="telephone">+1 206 555 0148</a>
+          <a
+            class="site-footer__details__contact__link"
+            href="tel:+12065550148"
+            itemprop="telephone"
+            >+1 206 555 0148</a
+          >
         </address>
         <address class="site-footer__details__contact">
           <h3 class="site-footer__details__contact__title">Email</h3>
