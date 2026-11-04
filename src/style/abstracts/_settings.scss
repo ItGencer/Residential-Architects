@@ -59,17 +59,26 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @mixin circle-button {
+  display: grid;
+  place-items: center;
   width: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
   aspect-ratio: 1;
   border: 1px solid $line;
   border-radius: 50%;
   background: transparent;
   color: inherit;
   cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 4px 0 rgba(23, 23, 21, 0.14);
   transition:
     background 300ms $ease,
     border-color 300ms $ease,
     color 300ms $ease,
+    box-shadow 150ms ease,
     transform 300ms $ease;
 
   &:hover,
@@ -80,6 +89,15 @@ $ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &:active {
-    transform: scale(0.96);
+    box-shadow: 0 1px 0 rgba(23, 23, 21, 0.14);
+    transform: translateY(3px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+
+    &:active {
+      transform: none;
+    }
   }
 }

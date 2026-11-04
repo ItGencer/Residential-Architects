@@ -6,6 +6,18 @@ import teamImage3 from "./assets/team/team-3.avif";
 import teamImage4 from "./assets/team/team-4.avif";
 import teamImage5 from "./assets/team/team-5.avif";
 import teamImage6 from "./assets/team/team-6.avif";
+import handshakeLogo from "./assets/brands/handshake.svg";
+import logoipsumLogo from "./assets/brands/logoipsum.svg";
+import academyLogo from "./assets/brands/academy.svg";
+import meridienLogo from "./assets/brands/meridien.svg";
+import frameLogo from "./assets/brands/frame.svg";
+import studioLogo from "./assets/brands/studio.svg";
+import coveLogo from "./assets/brands/cove.svg";
+import pulseLogo from "./assets/brands/pulse.svg";
+import nurtureLogo from "./assets/brands/nurture.svg";
+import aspectLogo from "./assets/brands/aspect.svg";
+import foundryLogo from "./assets/brands/foundry.svg";
+import draftLogo from "./assets/brands/draft.svg";
 
 document.querySelector("[data-service-image]")?.setAttribute("src", serviceImage);
 
@@ -20,6 +32,25 @@ const teamImages = {
 
 document.querySelectorAll("[data-team-image]").forEach((image) => {
   image.setAttribute("src", teamImages[image.dataset.teamImage]);
+});
+
+const brandLogos = {
+  handshake: handshakeLogo,
+  logoipsum: logoipsumLogo,
+  academy: academyLogo,
+  meridien: meridienLogo,
+  frame: frameLogo,
+  studio: studioLogo,
+  cove: coveLogo,
+  pulse: pulseLogo,
+  nurture: nurtureLogo,
+  aspect: aspectLogo,
+  foundry: foundryLogo,
+  draft: draftLogo,
+};
+
+document.querySelectorAll("[data-brand-logo]").forEach((image) => {
+  image.setAttribute("src", brandLogos[image.dataset.brandLogo]);
 });
 
 class NavigationController {

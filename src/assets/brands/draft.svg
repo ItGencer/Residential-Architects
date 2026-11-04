@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 72" fill="none">
+  <path d="m20 48 4-14 22-22 11 11-22 22-15 3Z" fill="#D1A84F"/>
+  <path d="m24 34 11 11m1-24 11 11M20 48l15-3" stroke="#7C6333" stroke-linecap="round" stroke-width="2"/>
+  <text x="70" y="43" fill="#65532E" font-family="Georgia,serif" font-size="26" font-style="italic" letter-spacing="2">DRAFT</text>
+</svg>

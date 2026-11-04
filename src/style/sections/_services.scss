@@ -25,7 +25,7 @@
     &__text {
       @include body-copy;
     }
-
+  }
 
   &__controls {
     justify-self: end;
@@ -37,8 +37,6 @@
       @include circle-button;
     }
   }
-  }
-
 
   &__rail {
     grid-column: 2 / -1;

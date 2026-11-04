@@ -91,21 +91,17 @@
     margin-top: clamp(2rem, 3.6vw, 2.8rem);
     padding-top: 1.15rem;
     border-top: 1px solid $line;
-
-    &__grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       border: 1px solid $line;
       background: $paper;
+      box-shadow: 0 1.25rem 2.75rem rgba(23, 23, 21, 0.08);
       overflow: hidden;
-    }
-
+      
     &__item {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 6.75rem;
-      padding: 1rem 0.9rem;
       background: $paper;
       border-bottom: 1px solid $line;
       border-right: 1px solid $line;
@@ -115,6 +111,12 @@
       font-size: 0.78rem;
       font-weight: 600;
       transition: transform 320ms $ease, color 320ms $ease;
+
+      img {
+        display: block;
+        width: min(100%, 12rem);
+        object-fit: contain;
+      }
 
       &:hover,
       &:focus-visible {
